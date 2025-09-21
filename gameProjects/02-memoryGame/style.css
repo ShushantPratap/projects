@@ -1,0 +1,122 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background: #381900f5;
+}
+.win{
+	width: fit-content;
+	color: #0cba7bf5;
+	border: 2px solid #0cba7bf5;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 0 auto;
+	animation: start;
+	animation-duration: 2s;
+	animation-fill-mode: both;
+	animation-iteration-count: infinite;
+}
+h1{
+	width: auto;
+	text-align: center;
+	color: #f1f1f1;
+	margin-top: 10px;
+}
+.time{
+	width: fit-content;
+	font-size: 20px;
+	font-weight: 800;
+	padding-left: 10px;
+	margin: 5px auto;
+	border-radius: 20px;
+	color: #381900f5;
+	background-color: #f1f1f1;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	position: relative;
+}
+.time button{
+	width: 100%;
+	height: 100%;
+	font-size: large;
+	border: none;
+	left: 0;
+	position: absolute;
+	background: #f1f1f1;
+	animation: start;
+	animation-duration: .7s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
+@keyframes start{
+	from{
+		background: #f1f1f1;
+	}
+	to{
+		color: #f1f1f1;
+		background: red;
+	}
+	
+}
+.time h2{
+	font-size: 25px;
+	padding: 10px;
+	border-radius: 20px;
+	margin-left: 6px;
+	background-color: #0cba7bf5;
+}
+.container{
+	width: 900px;
+    display: grid;
+	border: 4px solid #0cba7bf5;
+	border-radius: 5px;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	column-gap: 10px;
+	row-gap: 10px;
+	padding: 10px;
+	margin: 0 auto;
+	perspective: 1000px;
+}
+.card{
+	height: 100px;
+	position: relative;
+	background: #0cba7bf5;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 1px 5px 0 #0cba7bf5;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+}
+.cardActive, .match{
+	transform: rotateY(180deg);
+	border-radius: 5px;
+}
+.back{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	transform: rotateY(180deg);
+	overflow: hidden;
+}
+img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+@media only screen and (max-width: 600px){
+	
+.container{
+	width: auto;
+	grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+}
+.card{
+	height: 70px;
+}
+}
