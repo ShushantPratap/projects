@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "https://shushantprojects.vercel.app/API's/universal-player-api/api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "https://shushantprojects.vercel.app/api/(.*)",
+      "dest": "https://shushantprojects.vercel.app/API's/universal-player-api/api/index.js"
+    }
+  ]
+}
