@@ -6,7 +6,7 @@ const app = express();
 
 // CORS को कन्फिगर करें ताकि आपके दोस्त की वेबसाइट इसे एक्सेस कर सके
 app.use(cors({
-    origin: '*', // आप यहाँ अपने दोस्त की वेबसाइट का URL भी डाल सकते हैं
+    origin: "https://shushantprojects.vercel.app/API's/universal-player-api/api/index.js", // आप यहाँ अपने दोस्त की वेबसाइट का URL भी डाल सकते हैं
     methods: ['POST', 'GET']
 }));
 
@@ -57,15 +57,5 @@ app.post('/api/resolve', async (req, res) => {
 
 // डिफ़ॉल्ट रूट
 app.get('/', (req, res) => res.send('Universal Video API is Running!'));
-
-module.exports = app;
-
-// फाइल के एकदम आखिर में module.exports के नीचे ये लाइनें जोड़ें:
-if (process.env.NODE_ENV !== 'production') {
-    const PORT = 3000;
-    app.listen(PORT, () => {
-        console.log(`🚀 API Testing on: http://localhost:${PORT}`);
-    });
-}
 
 module.exports = app;
