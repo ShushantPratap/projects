@@ -6,7 +6,19 @@ const app = express();
 
 // CORS को कन्फिगर करें ताकि आपके दोस्त की वेबसाइट इसे एक्सेस कर सके
 app.use(cors({
-    origin: "https://shushantprojects.vercel.app/API's/universal-player-api/api/index.js", // आप यहाँ अपने दोस्त की वेबसाइट का URL भी डाल सकते हैं
+    origin: (origin, callback) => {
+        // अगर कोई ओरिजिन नहीं है (जैसे Postman) या वो हमारी लिस्ट में है, तो Allow करें
+        const allowedOrigins = [
+            "https://shushantp.vercel.app/projects",
+            "https://shushantprojects.vercel.app",
+        ];
+        
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("CORS policy says: Access Denied!"));
+        }
+    },
     methods: ['POST', 'GET']
 }));
 
