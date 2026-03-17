@@ -11,6 +11,7 @@ app.use(cors({
         const allowedOrigins = [
             "https://shushantp.vercel.app/projects",
             "https://shushantprojects.vercel.app",
+            "http://127.0.0.1:5500"
         ];
         
         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
