@@ -20,7 +20,8 @@ app.use(cors({
             callback(new Error("CORS policy says: Access Denied!"));
         }
     },
-    methods: ['POST', 'GET']
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
